@@ -1,0 +1,158 @@
+object_id,description,cell
+DC221,Buhler Die Cast Machine,2200.1
+DF221,Dosing Furnace,2200.1
+DS221M100,Wolin,2200.1
+FH221,KMA Filter Hood,2200.1
+PC221,Parts Conveyor,2200.1
+QT221,Quench Tank,2200.1
+RB221E,Extract Robot,2200.1
+RB221M,Marking Robot,2200.1
+RB221S,Spray Robot,2200.1
+SC221,Scrap Conveyor,2200.1
+TP221,Trim Press,2200.1
+WS221,Camfil Wetcrubber,2200.1
+DC222,Buhler Die Cast Machine,2200.2
+DF222,Dosing Furnace,2200.2
+DS222M100,Wolin,2200.2
+FH222,KMA Filter Hood,2200.2
+PC222,Parts Conveyor,2200.2
+QT222,Quench Tank,2200.2
+RB222E,Extract Robot,2200.2
+RB222M,Marking Robot,2200.2
+RB222S,Spray Robot,2200.2
+SC222,Scrap Conveyor,2200.2
+TP222,Trim Press,2200.2
+WS222,Camfil Wet Scrubber,2200.2
+DC223,Buhler Die Cast Machine,2200.3
+DF223,Dosing Furnace,2200.3
+DS223M100,Wolin,2200.3
+FH223,KMA Filter Hood,2200.3
+PC223,Parts Conveyor,2200.3
+QT223,Quench Tank,2200.3
+RB223E,Extract Robot,2200.3
+RB223M,Marking Robot,2200.3
+RB223S,Spray Robot,2200.3
+SC223,Scrap Conveyor,2200.3
+TP223,Trim Press,2200.3
+WS223,Camfil Wet Scubber,2200.3
+BO281,Blister Oven,2800.1
+DC281,Buhler Die Cast Machine,2800.1
+DF281.1,Dosing Furnace,2800.1
+DS281M100,Wolin,2800.1
+FH281,KMA Filter Hood,2800.1
+IPR281,IPR Robot Rail,2800.1
+PC281,Parts Conveyor,2800.1
+PP281,Kuka Pick and Place,2800.1
+QT281,Quench Tank,2800.1
+RB281E,Extract Robot,2800.1
+RB281M,Marking Robot,2800.1
+RB281S,Spray Robot,2800.1
+SC281,Scrap Conveyor,2800.1
+TP281F,Fine Trim Press,2800.1
+TP281R,Rough Trim Press,2800.1
+WS281,Camfil Wet Scrubber,2800.1
+DC282,Buhler Die Cast Machine,2800.2
+DF282,Dosing Furnace,2800.2
+DS282,Gerlieva Spray,2800.2
+FH282,KMA Filter Hood,2800.2
+FT282,Fine Trim,2800.2
+PC282,Parts Conveyor,2800.2
+QT282,Quench Tank,2800.2
+RB282E,Extract Robot,2800.2
+RB282M,Marking Robot,2800.2
+RB282S,Spray Robot,2800.2
+RB282T,Trim Robot,2800.2
+SC282,Scrap Conveyor,2800.2
+TP282R,Rought Trim,2800.2
+WS282,Camfil Wet Scrubber,2800.2
+DC442,Buhler Die Cast Machine,4400.2
+FH442,KMA Filter Hood,4400.2
+MF442,Rauch Furnace,4400.2
+PC442,Parts Conveyor,4400.2
+RB442E,Extract Robot,4400.2
+RB442I,Ingot Robot,4400.2
+RB442M,Marking Robot,4400.2
+RB442P,Pallet Robot,4400.2
+RB442S,Spray Robot,4400.2
+SC442,Scrap Conveyor,4400.2
+TP442,Trim Press,4400.2
+WS442,Camfil Wet Scrubber,4400.2
+AQ443,Air Quench Stand,4400.3
+DC443,Buhler Die Cast Machine,4400.3
+DS443,Gerlieva Spray,4400.3
+EF443,Rauch Exhaust Fan,4400.3
+FH443,KMA Filter Hood,4400.3
+MF443,Dosing Furnace,4400.3
+PC443,Parts Conveyor,4400.3
+RB443E,Extract Robot,4400.3
+RB443I,Ingot Robot,4400.3
+RB443M,Marking Robot,4400.3
+RB443S,Spray Robot,4400.3
+RB443T,Trim Robot,4400.3
+SC443,Scrap Conveyor,4400.3
+TP443,Trim Press,4400.3
+AQ444,Air Quench,4400.4
+DC444,Buhler Die Cast Machine,4400.4
+DS444,Gerlieva Spray,4400.4
+EF444,Rauch Furnace Exhaust,4400.4
+FH444,KMA Filter Hood,4400.4
+MF444,Rauch Furnace,4400.4
+PC444,Parts Conveyor,4400.4
+RB444E,Extract Robot,4400.4
+RB444I,Ingot Robot,4400.4
+RB444M,Marking Robot,4400.4
+RB444S,Spray Robot,4400.4
+RB444T,Trim Robot,4400.4
+SC444,Scrap Conveyor,4400.4
+TP444,Trim Press,4400.4
+AQ445,Air Quench,4400.5
+DC445,Buhler Die Cast Machine,4400.5
+DS445,Gerlieva Spray,4400.5
+EF445,Rauch Furnace Exhaust,4400.5
+FH445,KMA Filter Hood,4400.5
+MF445,Rauch Furnace,4400.5
+PC445,Parts Conveyor,4400.5
+RB445E,Extract Robot,4400.5
+RB445I,Ingot Robot,4400.5
+RB445M,Marking Robot,4400.5
+RB445S,Spray Robot,4400.5
+RB445T,Trim Robot,4400.5
+SC445,Scrap Conveyor,4400.5
+TP445,Trim Press,4400.5
+AQ446,Air Quench,4400.6
+DC446,Buhler Die Cast Machine,4400.6
+DS446,Gerlieva Spray,4400.6
+EF446,Rauch Furnace Exhaust,4400.6
+FH446,KMA Filter Hood,4400.6
+MF446,Rauch Furnace,4400.6
+PC446,Parts Conveyor,4400.6
+RB446E,Extract Robot,4400.6
+RB446I,Ingot Robot,4400.6
+RB446M,Marking Robot,4400.6
+RB446S,Spray Robot,4400.6
+RB446T,Trim Robot,4400.6
+SC446,Scrap Conveyor,4400.6
+TP446,Trim Press,4400.6
+AQ447,Air Quench,4400.7
+DC447,Buhler Die Cast Machine,4400.7
+DS447,Gerlieva Spray,4400.7
+EF447,Rauch Furnace Exhaust,4400.7
+FH447,KMA Filter Hood,4400.7
+MF447,Rauch Furnace,4400.7
+PC447,Parts Conveyor,4400.7
+RB447E,Extract Robot,4400.7
+RB447I,Ingot Robot,4400.7
+RB447M,Marking Robot,4400.7
+RB447S,Spray Robot,4400.7
+RB447T,Trim Robot,4400.7
+SC447,Scrap Conveyor,4400.7
+TP447,Trim Press,4400.7
+MF001,Melt Furnace 1,MELT
+MF002,Melt Furnace 2,MELT
+MF003,Melt Furnace 3,MELT
+CRSBC,Gorbel Lift Assist,SBC
+RB441,Shot Blast Robot,SBC
+SB441,Rosler Shot Blast,SBC
+WS441,Camfil Wet Scrubber,SBC
+WW6000,Waste Water Machine,Waste Water
+WW8000,Waste Water Machine,Waste Water
