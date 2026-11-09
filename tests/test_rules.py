@@ -1,6 +1,15 @@
 from datetime import date
 
-from pmtracker.rules import lookup_cell, parse_frequency, suggest_cell, week_number
+import pytest
+
+from pmtracker.rules import (
+    lookup_cell,
+    parse_frequency,
+    suggest_cell,
+    to_db_month,
+    to_us_month,
+    week_number,
+)
 
 def test_parse_frequency_known_values():
     assert parse_frequency("Weekly PM") == "Weekly"
@@ -38,3 +47,14 @@ def test_suggest_cell():
     assert suggest_cell("RB281E") == "2800.1"
     assert suggest_cell("SB441") == "SBC"
     assert suggest_cell("CRSBC") is None # Asset exists, but there are no digits to guess from; CRSBC is mapped in assets.csv
+
+def test_month_conversion():
+    assert to_db_month("10/2026") == "2026-10"
+    assert to_db_month("1/2027") == "2027-01"
+    assert to_us_month("2026-10") == "10/2026"
+
+def test_bad_month_is_rejected():
+    with pytest.raises(ValueError):
+        to_db_month("13/2026")
+    with pytest.raises(ValueError):
+        to_db_month("2026-10")

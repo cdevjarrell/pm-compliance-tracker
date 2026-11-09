@@ -67,3 +67,15 @@ def suggest_cell(object_id):
     if code in SPECIAL_CODES:
         return SPECIAL_CODES[code]
     return f"{code[:2]}00.{code[2]}"
+
+def to_db_month(text):
+    """Convert a US month like "10/2026" to the stored form "2026-10"."""
+    match = re.fullmatch(r"\s*(\d{1,2})/(\d{4})\s*", str(text))
+    if not match or not 1 <= int(match.group(1)) <= 12:
+        raise ValueError(f"Month must look like MM/YYYY, for example 10/2026 (got '{text}')")
+    return f"{match.group(2)}-{int(match.group(1)):02d}"
+
+def to_us_month(db_month):
+    """Conver the stored form "2026-10" back to the "10/2026" for display."""
+    year, month = db_month.split("-")
+    return f"{month}/{year}"
