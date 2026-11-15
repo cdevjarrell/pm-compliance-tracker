@@ -32,5 +32,5 @@ def cell_compliance(conn, month):
         "FROM work_orders WHERE month = ? GROUP BY cell ORDER BY cell",
         conn, params=(month,),
     )
-    df["percet"] = (df["completed"] / df["scheduled"] * 100).round(1)
+    df["percent"] = (df["completed"] / df["scheduled"] * 100).round(1)
     return df

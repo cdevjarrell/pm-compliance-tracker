@@ -33,7 +33,7 @@ COLUMNS = [
 ]
 
 def connect(path="pm_tracker.db"):
-    """Open (or create) the database and make sure the table exists!"""
+    """Open (or create) the database and make sure the tables exist!"""
     conn = sqlite3.connect(path)
     conn.executescript(SCHEMA)
     return conn

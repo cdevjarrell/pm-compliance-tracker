@@ -1,8 +1,8 @@
 """Generate fake IFS exports that match the real export format.
 
 Run: python -m pmtracker.generate_sample
-Creates data/sample/ActiveWorkORders_sample.xlsx and HistoricalWorkOrders_sample.xlsx.
-No real plant data is used; the public repo only ever contains these  files.
+Creates data/sample/ActiveWorkOrders_sample.xlsx and HistoricalWorkOrders_sample.xlsx.
+No real plant data is used; the public repo only ever contains these files.
 """
 
 import csv
@@ -17,7 +17,7 @@ from pmtracker.importer import REQUIRED_COLUMNS
 START = date(2024, 1, 1)
 OUT_DIR = Path("data/sample")
 
-# Directive text -> (days between PMs, share of sassets that have this PM)
+# Directive text -> (days between PMs, share of assets that have this PM)
 SCHEDULES = {
     "Weekly PM": (7, 0.15),
     "Bi-Weekly PM": (14, 0.20),

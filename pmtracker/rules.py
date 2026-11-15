@@ -1,11 +1,11 @@
-"""Business Rules: Pm frequency, Sundary-start week numbers, and ObjectID-to_cell mapping"""
+"""Business Rules: PM frequency, Sundary-start week numbers, and ObjectID-to-cell mapping"""
 
 import csv
 import re
 from datetime import date
 
-# Directive test from IFS -> frequency catgory used in the report.
-# "3 Years PM" is counted with Annual, the same way the current Excel workbook does  it.
+# Directive text from IFS -> frequency catgory used in the report.
+# "3 Years PM" is counted with Annual, the same way the current Excel workbook does it.
 FREQUENCY_MAP = {
     "weekly pm": "Weekly",
     "bi-weekly pm": "Bi-weekly",
@@ -23,7 +23,7 @@ FREQUENCIES = ["Weekly", "Bi-weekly", "Monthly", "Quarterly", "Semi-Annual", "An
 SPECIAL_CODES = {"441": "SBC"}
 
 def parse_frequency(directive):
-    """Return the frequency catgory for a Directive value, or None if it is not a PM."""
+    """Return the frequency category for a Directive value, or None if it is not a PM."""
     if directive is None:
         return None
     key = " ".join(str(directive).split()).lower() # Trims and collapses extra spaces
@@ -32,7 +32,7 @@ def parse_frequency(directive):
 def week_number(day):
     """Week of the year with weeks running Sunday to Saturday (same as Excel WEEKNUM(date, 1)).
     
-    Week 1 is the week that containts January 1.
+    Week 1 is the week that contains January 1.
     """
     jan1 = date(day.year, 1, 1)
     days_before_jan1 = (jan1.weekday() + 1) % 7 # Python lists Monday as 0. This shifts Sunday to 0 instead.
@@ -50,7 +50,7 @@ def load_asset_map(path):
     return asset_map
 
 def lookup_cell(object_id, asset_map):
-    """Return the cell for an ObjectID, or None if it is not in th asset list."""
+    """Return the cell for an ObjectID, or None if it is not in the asset list."""
     if object_id is None:
         return None
     return asset_map.get(str(object_id).strip().upper())
@@ -58,7 +58,7 @@ def lookup_cell(object_id, asset_map):
 def suggest_cell(object_id):
     """Guess a cell from the digits in an unknown ObjectID, e.g. TP444 -> 4400.4.
     
-    Used only to hlep when an import flags an unmapped ObjectID. Returns None if no guess.
+    Used only to help when an import flags an unmapped ObjectID. Returns None if no guess.
     """
     match = re.match(r"^[A-Z]+(\d{3})", str(object_id).strip().upper())
     if not match:
@@ -76,6 +76,6 @@ def to_db_month(text):
     return f"{match.group(2)}-{int(match.group(1)):02d}"
 
 def to_us_month(db_month):
-    """Conver the stored form "2026-10" back to the "10/2026" for display."""
+    """Convert the stored form "2026-10" back to the "10/2026" for display."""
     year, month = db_month.split("-")
     return f"{month}/{year}"

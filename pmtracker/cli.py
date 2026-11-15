@@ -68,8 +68,8 @@ def main():
     imp.add_argument("--historical", help="Historical work orders export (.xlsx or .csv)")
     imp.set_defaults(func=run_import)
     
-    summ = sub.add_parser("summary", help="Show one month's complliance")
-    summ.add_argument("--month", required=True, help="Month as MM/YYY, e.g. 10/2026")
+    summ = sub.add_parser("summary", help="Show one month's compliance")
+    summ.add_argument("--month", required=True, help="Month as MM/YYYY, e.g. 10/2026")
     summ.set_defaults(func=run_summary)
     
     args = parser.parse_args()
