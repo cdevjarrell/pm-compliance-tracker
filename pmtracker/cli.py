@@ -13,8 +13,17 @@ import pandas as pd
 
 from pmtracker.database import connect, save_work_orders
 from pmtracker.importer import ImportValidationError, prepare, read_export
-from pmtracker.report import GOAL, cell_compliance, monthly_summary
-from pmtracker.rules import load_asset_map, to_db_month
+from pmtracker.report import (
+    GOAL,
+    cell_compliance,
+    monthly_summary,
+    quarter_of,
+    quarter_to_date,
+    weekly_summary,
+    year_to_date,
+)
+from pmtracker.rules import load_asset_map, to_db_month, to_us_month
+from pmtracker.settings import load_scope
 
 ASSETS = "config/assets.csv"
 
@@ -46,17 +55,38 @@ def run_summary(args):
         print(f"Error: {err}")
         return
     conn = connect(args.db)
-    table, overall = monthly_summary(conn, month)
+    scope = load_scope()
+    table, overall = monthly_summary(conn, month, scope)
     if overall is None:
         print(f"No work orders found for {args.month}")
+        conn.close()
         return
     with pd.option_context("display.max_rows", None, "display.max_columns", None, "display.width", 160):
         print(table)
         print()
-        print(cell_compliance(conn, month).to_string(index=False))
-    status  = "MEETS" if overall >= GOAL else "BELOW"
+        print(cell_compliance(conn, month, scope).to_string(index=False))
+        print()
+        weeks = weekly_summary(conn, month, scope)
+        weeks["percent"] = (weeks["percent"] * 100).round(1)
+        print(weeks.to_string(index=False))
+    status = "MEETS" if overall >= GOAL else "BELOW"
     print(f"\nOverall {args.month}: {overall:.1%} ({status} {GOAL:.0%} goal)")
+    
+    year, month_number = int(month[:4]), int(month[5:])
+    quarter = quarter_of(month_number)
+    print_period(f"Q{quarter} {year} to date", quarter_to_date(conn, year, quarter, scope=scope))
+    print_period(f"{year} year to date", year_to_date(conn, year, scope=scope))
     conn.close()
+
+def print_period(label, result):
+    """Print one quarter-to-date or year-to-date line."""
+    if result is None:
+        print(f"{label}: no finished months yet")
+        return
+    months = ", ".join(to_us_month(m) for m in result["months"])
+    print(f"{label}: {result['average']:.1%} average of months (official), "
+          f"{result['pooled']:.1%} pooled [{months}]")
+    
 
 def main():
     parser = argparse.ArgumentParser(prog="pmtracker")
