@@ -16,9 +16,11 @@ from pmtracker.importer import ImportValidationError, prepare, read_export
 from pmtracker.report import (
     GOAL,
     cell_compliance,
+    format_percent,
     monthly_summary,
     quarter_of,
     quarter_to_date,
+    round_percent,
     weekly_summary,
     year_to_date,
 )
@@ -67,10 +69,10 @@ def run_summary(args):
         print(cell_compliance(conn, month, scope).to_string(index=False))
         print()
         weeks = weekly_summary(conn, month, scope)
-        weeks["percent"] = (weeks["percent"] * 100).round(1)
+        weeks["percent"] = weeks["percent"].map(format_percent)
         print(weeks.to_string(index=False))
-    status = "MEETS" if overall >= GOAL else "BELOW"
-    print(f"\nOverall {args.month}: {overall:.1%} ({status} {GOAL:.0%} goal)")
+    status = "MEETS" if round_percent(overall) >= GOAL else "BELOW"
+    print(f"\nOverall {args.month}: {format_percent(overall)} ({status} {format_percent(GOAL)} goal)")
     
     year, month_number = int(month[:4]), int(month[5:])
     quarter = quarter_of(month_number)
@@ -84,8 +86,8 @@ def print_period(label, result):
         print(f"{label}: no finished months yet")
         return
     months = ", ".join(to_us_month(m) for m in result["months"])
-    print(f"{label}: {result['average']:.1%} average of months (official), "
-          f"{result['pooled']:.1%} pooled [{months}]")
+    print(f"{label}: {format_percent(result['average'])} average of months (official), "
+          f"{format_percent(result['pooled'])} pooled [{months}]")
     
 
 def main():
